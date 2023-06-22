@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>mickeys portfolio</title>
+       
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <style>
+
+            .home{
+                height: 100%
+                /* background: ; */
+            }
+
+            table{
+                width: 100%;
+                
+                font-size: 20px;
+            }
+
+            th{
+                text-align: left;
+                color: black;
+                font-weight: bold;
+            }
+
+            table, th, td{
+                border: 1px solid #00ffca;
+                border-collapse: collapse;
+            }
+
+            td, p, a{
+                color: #00ffca;
+                text-decoration: none;
+            }
+
+            p a:hover{
+                text-decoration: overline underline;
+            }
+
+            th, td{
+                padding: 10px;
+            }
+
+            tr:nth-child(even){
+                background-color:#068067;
+            }
+
+            #education_history, #bracu, #alevels, #olevels{
+                padding-top: 150px;
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            /* #bracu {
+                padding-top: 150px;
+            } */
+
+            p .capt{
+                color: aliceblue;
+                font-weight: bold;
+            }
+            
+        </style>
+
+        <!-- NEED TO CHANGE THE VERSION OF THE FONT AWSOME FROM HERE & THE BELOW LINK IS NEEDED SO THAT THE ICONS ARE VISIBLE IN THE PAGE -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    </head>
+
+    <body>
+        
+        <div class="home" id="home-page">
+            <nav>
+                <h2 id="logo">sh<span id="sub-logo">mickey</span></h2>
+                
+                
+                <script>
+                    
+                    const logo = document.getElementById('logo');
+                    const sublogo = document.getElementById('sub-logo');
+
+                    logo.style.color = "#0A4D68";
+                    logo.style.fontSize = '35px';
+                    logo.style.letterSpacing = '1px';
+                    logo.style.cursor = 'pointer';
+                    sublogo.style.color = "#00FFCA";
+
+                    logo.addEventListener('mouseover', function mouseHover(){
+                        logo.style.color = "#00FFCA";
+                        sublogo.style.color = "#0A4D68";
+                        
+                    });
+
+                    logo.addEventListener('mouseout', function mouseHoverOut(){
+                        logo.style.color = "#0A4D68";
+                        sublogo.style.color = "#00FFCA";
+                        logo.style.transition = "0.4s";
+                        sublogo.style.transition = "0.4s";
+                    })
+                </script>
+
+
+                <ul> 
+                    <li><a href="index.html#home-page">Home</a></li>
+                    <li><a href="index.html#about-me">About Me</a></li>
+                    <li><a href="index.html#our-services">Services</a></li>
+                    <li><a href="#">Skills</a></li>
+                    <li><a href="index.html#extras">Extras</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="index.html#contact-me">Contact Me</a></li>
+                </ul>
+            </nav>
+
+            
+
+            <div id="education_history">
+                <p>&nbsp;</p>
+                <table style="width: 100%;" cellspacing="0" cellpadding="4">
+                    <colgroup><col width="85*" /><col width="85*" /><col width="85*" /></colgroup>
+                <tbody>
+                <tr valign="top">
+                <td width="33%">
+                <p><strong>Institution</strong></p>
+                </td>
+                <td width="33%">
+                <p><strong>Degree / Certificate</strong></p>
+                </td>
+                <td width="33%">
+                <p><strong>Year</strong></p>
+                </td>
+                </tr>
+                <tr valign="top">
+                <td width="33%">
+                <p>Brac University</p>
+                </td>
+                <td width="33%">
+                <p><a href="#bracu">B.Sc in Computer Science</a></p>
+                </td>
+                <td width="33%">
+                <p>2024</p>
+                </td>
+                </tr>
+                <tr valign="top">
+                <td width="33%">
+                <p>Capstone School Dhaka</p>
+                </td>
+                <td width="33%">
+                <p><a href="#alevels">GCE A Levels</a></p>
+                </td>
+                <td width="33%">
+                <p>2020</p>
+                </td>
+                </tr>
+                <tr valign="top">
+                <td width="33%">
+                <p>European Standard School</p>
+                </td>
+                <td width="33%">
+                <p><a href="#olevels">GCE O Levels</a></p>
+                </td>
+                <td width="33%">
+                <p>2018</p>
+                </td>
+                </tr>
+                </tbody>
+                </table>
+
+                <p id="capt"
+                    style="
+                        color: aliceblue;
+                        font-style: italic;
+                        font-weight: bold;"
+                >
+                    * Click on the Degree / Certificates to get the detail results.
+                </p>
+            </div>
+
+
+
+
+
+
+
+
+            <div id="bracu">
+                
+                <table style="width: 100%;" cellspacing="0" cellpadding="4"><colgroup><col width="128*" /><col width="128*" /></colgroup>
+                    <tbody>
+                    <tr>
+                    <td colspan="2" valign="top" width="100%">
+                    <p align="center">Brac University</p>
+                    </td>
+                    </tr>
+                    <tr valign="top">
+                    <td width="50%">
+                    <p align="center">B.Sc (Hons) in Computer Science</p>
+                    </td>
+                    <td width="50%">
+                    <p align="center">CGPA &ndash; 3.91</p>
+                    </td>
+                    </tr>
+                    </tbody>
+                    </table>
+            </div>
+
+
+
+            <div id="alevels">
+                <table style="width: 100%;" cellspacing="0" cellpadding="4"><colgroup><col width="128*" /><col width="128*" /></colgroup>
+                    <tbody>
+                    <tr>
+                    <td colspan="2" valign="top" width="100%">
+                    <p align="center">Capstone School Dhaka (A Levels)</p>
+                    </td>
+                    </tr>
+                    <tr valign="top">
+                    <td width="50%">
+                    <p align="center">Pure Mathematics</p>
+                    </td>
+                    <td width="50%">
+                    <p align="center">A*</p>
+                    </td>
+                    </tr>
+                    <tr valign="top">
+                    <td width="50%">
+                    <p align="center">Chemistry</p>
+                    </td>
+                    <td width="50%">
+                    <p align="center">A*</p>
+                    </td>
+                    </tr>
+                    <tr valign="top">
+                    <td width="50%">
+                    <p align="center">Physics</p>
+                    </td>
+                    <td width="50%">
+                    <p align="center">A</p>
+                    </td>
+                    </tr>
+                    <tr valign="top">
+                    <td width="50%">
+                    <p align="center">Further Mathematics</p>
+                    </td>
+                    <td width="50%">
+                    <p align="center">A</p>
+                    </td>
+                    </tr>
+                    </tbody>
+                    </table>
+            </div>
+
+
+
+            <div id="olevels">
+                <table style="width: 100%;" cellspacing="0" cellpadding="4"><colgroup><col width="128*" /><col width="128*" /></colgroup>
+                    <tbody>
+                    <tr>
+                    <td colspan="2" valign="top" width="100%">
+                    <p align="center">European Standard School (O Levels)</p>
+                    </td>
+                    </tr>
+                    <tr valign="top">
+                    <td width="50%">
+                    <p align="center">Additional Mathematics</p>
+                    </td>
+                    <td width="50%">
+                    <p align="center">A*</p>
+                    </td>
+                    </tr>
+                    <tr valign="top">
+                    <td width="50%">
+                    <p align="center">General Mathematics</p>
+                    </td>
+                    <td width="50%">
+                    <p align="center">A*</p>
+                    </td>
+                    </tr>
+                    <tr valign="top">
+                    <td width="50%">
+                    <p align="center">Computer Science</p>
+                    </td>
+                    <td width="50%">
+                    <p align="center">A*</p>
+                    </td>
+                    </tr>
+                    <tr valign="top">
+                    <td width="50%">
+                    <p align="center">Chemistry</p>
+                    </td>
+                    <td width="50%">
+                    <p align="center">A*</p>
+                    </td>
+                    </tr>
+                    <tr valign="top">
+                    <td width="50%">
+                    <p align="center">Physics</p>
+                    </td>
+                    <td width="50%">
+                    <p align="center">A*</p>
+                    </td>
+                    </tr>
+                    <tr valign="top">
+                    <td width="50%">
+                    <p align="center">Bengali</p>
+                    </td>
+                    <td width="50%">
+                    <p align="center">A*</p>
+                    </td>
+                    </tr>
+                    <tr valign="top">
+                    <td width="50%">
+                    <p align="center">English Language</p>
+                    </td>
+                    <td width="50%">
+                    <p align="center">B</p>
+                    </td>
+                    </tr>
+                    </tbody>
+                    </table>
+            </div>
+            <!-- <table>
+                <tr>
+                  <th>Company</th>
+                  <th>Contact</th>
+                  <th>Country</th>
+                </tr>
+                <tr>
+                  <td>Alfreds Futterkiste</td>
+                  <td>Maria Anders</td>
+                  <td>Germany</td>
+                </tr>
+                <tr>
+                  <td>Centro comercial Moctezuma</td>
+                  <td>Francisco Chang</td>
+                  <td>Mexico</td>
+                </tr>
+              </table> -->
+
+
+
+            <footer>
+                <p>SHAHRIAR HASAN MICKEY</p>
+                <P>For staying updated with development, tech related or consultation and learning purposes follow me on my socials</P>
+                <div class="social_media">
+                    <a href="https://www.facebook.com/miki.munna"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/@shahriarhasanmickey5960"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://twitter.com/sHaRPless_1199"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/shahriar-hasan-mickey"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-github"></i></a>
+                    <a href="mailto:shahriar.hasan.mickey@g.bracu.ac.bd"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+                <p class="end"><i class="fa-regular fa-copyright"></i> CopyRight By SHAHRIAR HASAN MICKEY</p>
+            </footer>
+        </div>
+
+        
+
+        
+    </body>
+</html>

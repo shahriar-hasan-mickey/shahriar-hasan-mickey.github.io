@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>mickeys portfolio</title>
+       
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <style>
+
+            .home{
+                background-color: #D0FFF5;
+
+            }
+
+        
+            .box{
+                padding-top: 150px;
+                font-weight: bold;
+                font-style: italic;
+            }
+            
+            .card{
+                width: 60%;
+                padding: 2% 15%;
+            }
+
+
+            .convertionBox{
+                background-color: #118799;
+                padding: 5px;
+            }
+
+            #inputValue{ 
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            
+            
+
+            .tableColumns  {
+                border-collapse:collapse;
+                border-spacing:0;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .tableColumns td{
+                /* border-color:black; */
+                /* border-style:solid; */
+                border-width:1px;
+                font-family:Arial, sans-serif;
+                font-size:14px;
+                overflow:hidden;
+                /* padding:10px 5px; */
+                word-break:normal;
+                white-space: nowrap;
+            }
+
+            .tableColumns th{
+                /* border-color:black; */
+                /* border-style:solid; */
+                border-width:1px;
+                font-family:Arial, sans-serif;
+                font-size:14px;
+                font-weight:normal;
+                overflow:hidden;
+                /* padding:10px 5px; */
+                word-break:normal;
+            }
+            /* .tableColumns .leftColumn{
+                text-align:right;
+                vertical-align:top
+            } */
+            .tableColumns .rightColumn{
+                text-align:left;
+                vertical-align:top
+            }
+                   
+            #inputValue{
+                width: 100%;
+                margin: 0px;
+                padding: 2px;
+            }
+
+            .btn1, .btn2, .btn3, .btn4, .btn5, .btn6, .btn7{
+                padding: 10px 20px;
+                border: 2px solid aqua;
+                background-color: #088395;
+                transition: 0.4s;
+                font-size: 10px;
+                /* font-weight: b; */
+                color: aliceblue;
+            }
+
+            /* .btn1{
+                background-color: rgb(230, 152, 8);
+            }
+            .btn2{
+                
+            }
+
+            .btn3{
+                background-color: blueviolet;
+            }
+
+            .btn4{
+                background-color: green;
+            } */
+
+            button:hover{
+                background-color: black;
+                border: 2px solid #fdfdfd;
+                cursor: pointer;
+                font-size: 15px;
+                color: #00FFCA;
+            }   
+        </style>
+
+        <!-- NEED TO CHANGE THE VERSION OF THE FONT AWSOME FROM HERE & THE BELOW LINK IS NEEDED SO THAT THE ICONS ARE VISIBLE IN THE PAGE -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    </head>
+
+    <body>
+        
+        <div class="home" id="home-page">
+            <nav>
+                <h2 id="logo">sh<span id="sub-logo">mickey</span></h2>
+                
+                
+                
+
+
+
+
+                <ul> 
+                    <li><a href="index.html#home-page">Home</a></li>
+                    <li><a href="index.html#about-me">About Me</a></li>
+                    <li><a href="index.html#our-services">Services</a></li>
+                    <li><a href="#">Skills</a></li>
+                    <li><a href="index.html#extras">Extras</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="index.html#contact-me">Contact Me</a></li>
+                </ul>
+
+                
+            </nav>
+
+            <div class="box">
+                <div class="card">
+                    <h4 >Magic!</h4>
+                    <div class="convertionBox" id="convertionBox" style="border: 2px solid black;
+                    padding-top: 10px;
+                    padding-bottom: 10px;">
+                        
+                            <table class="tableColumns">
+                            <thead>
+                              <tr>
+                                <!-- <th class="leftColumn"><strong>Series of Number</strong></th> -->
+                                <th class="rightColumn"><textarea type="text" id="inputValue" rows="20" cols="40"></textarea></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="leftColumn">
+                                    <p style="text-align: center;">
+                                        <button class="btn1" onclick="btn1_function();">Clear It</button>
+                                        <button class="btn2" onclick="btn2_function()">Capitalize</button>
+                                        <button class="btn3" onclick="btn3_function()">Sort</button>
+                                        <button class="btn4" onclick="btn4_function()">Reverse</button>
+                                        <button class="btn5" onclick="btn5_function()">Strip Blank</button>
+                                        <button class="btn6" onclick="btn6_function()">Add Numbers</button>
+                                        <button class="btn7" onclick="btn7_function()">Shuffle</button>
+                                    </p>
+                                </td>
+                              </tr>
+                        
+                            </tbody>
+                            </table>
+                        </div>
+                </div>  
+            </div>
+
+            
+            
+
+            
+
+            
+
+
+
+
+
+            
+        </div>
+
+        <footer>
+                <p>SHAHRIAR HASAN MICKEY</p>
+                <P>For staying updated with development, tech related or consultation and learning purposes follow me on my socials</P>
+                <div class="social_media">
+                    <a href="https://www.facebook.com/miki.munna"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/@shahriarhasanmickey5960"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://twitter.com/sHaRPless_1199"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/shahriar-hasan-mickey"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-github"></i></a>
+                    <a href="mailto:shahriar.hasan.mickey@g.bracu.ac.bd"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+                <p class="end"><i class="fa-regular fa-copyright"></i> CopyRight By SHAHRIAR HASAN MICKEY</p>
+        </footer>
+
+
+        <script src="magic_with_js.js"></script>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

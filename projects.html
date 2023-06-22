@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>mickeys portfolio</title>
+       
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <style>
+
+            /* .home{
+                height: 100%
+                background: #111111;
+            } */
+
+        
+            .box{
+                padding-top: 200px;
+                font-weight: bold;
+                font-style: italic;
+            }
+            
+            .card{
+                width: 80%;
+                padding: 5%;
+            }
+
+            /* .author{
+                text-align: right;
+                padding-right: 20%;
+            } */
+
+            .btn1, .btn2, .btn3, .btn4, .btn5, .btn6, .btn7, .btn8{
+                padding: 30px;
+                margin: 10px 10px;
+                border: 2px solid aqua;
+                transition: 0.4s;
+                color: aliceblue;
+                font-size: 15px;
+            }
+
+            .btn1{
+                background-color: rgb(230, 152, 8);
+            }
+            .btn2{
+                background-color: #088395;
+            }
+
+            .btn3{
+                background-color: blueviolet;
+            }
+
+            .btn4{
+                background-color: green;
+            }
+
+            .btn5{
+                background-color: rgb(148, 194, 23);
+            }
+            .btn6{
+                background-color: rgb(110, 17, 14);
+            }
+            .btn7{
+                background-color: rgb(53, 185, 64);
+            }
+            .btn8{
+                background-color: rgb(84, 19, 87);
+            }
+            button:hover{
+                background-color: transparent;
+                border: 2px solid #00FFCA;
+                cursor: pointer;
+                color: #00FFCA;
+                transform: scale(1.2);
+            }   
+
+            .paragraph{
+                background-color: #088395;
+            }
+        </style>
+
+        <!-- NEED TO CHANGE THE VERSION OF THE FONT AWSOME FROM HERE & THE BELOW LINK IS NEEDED SO THAT THE ICONS ARE VISIBLE IN THE PAGE -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    </head>
+
+    <body>
+        
+        <div class="home" id="home-page">
+            <nav>
+                <h2 id="logo">sh<span id="sub-logo">mickey</span></h2>
+                
+                
+                <script>
+                    
+                    const logo = document.getElementById('logo');
+                    const sublogo = document.getElementById('sub-logo');
+
+                    logo.style.color = "#0A4D68";
+                    logo.style.fontSize = '35px';
+                    logo.style.letterSpacing = '1px';
+                    logo.style.cursor = 'pointer';
+                    sublogo.style.color = "#00FFCA";
+
+                    logo.addEventListener('mouseover', function mouseHover(){
+                        logo.style.color = "#00FFCA";
+                        sublogo.style.color = "#0A4D68";
+                        
+                    });
+
+                    logo.addEventListener('mouseout', function mouseHoverOut(){
+                        logo.style.color = "#0A4D68";
+                        sublogo.style.color = "#00FFCA";
+                        logo.style.transition = "0.4s";
+                        sublogo.style.transition = "0.4s";
+                    })
+                </script>
+
+
+
+
+                <ul> 
+                    <li><a href="index.html#home-page">Home</a></li>
+                    <li><a href="index.html#about-me">About Me</a></li>
+                    <li><a href="index.html#our-services">Services</a></li>
+                    <li><a href="#">Skills</a></li>
+                    <li><a href="index.html#extras">Extras</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="index.html#contact-me">Contact Me</a></li>
+                </ul>
+
+                
+            </nav>
+
+            <div class="box">
+                <div class="card">
+                    <h4>Projects:</h4>
+                    
+                    <p style="text-align: center;">
+                        <button class="btn1" onclick="btn1_function()">Random Quote Box</button>
+                        <button class="btn2" onclick="btn2_function()">Magic With JavaScript</button>
+                        <button class="btn3" onclick="btn3_funciton()">Converter</button>
+                        <button class="btn4" onclick="btn4_function()">Summary Of Numbers</button>
+                        <button class="btn5" onclick="btn5_function()">Todo List</button>
+                        <button disabled class="btn6" onclick="btn6_function()"><s>(PTS) Personal Time Saver (Android Version)</s></button>
+                        <button disabled class="btn7" onclick="btn7_funciton()"><s>(PTS) Personal Time Saver (Web Version)</s></button>
+                        <button disabled class="btn8" onclick="btn8_function()"><s></s></button>
+                    </p>
+                </div>  
+            </div>
+
+            
+
+            
+
+
+
+            <script>
+
+                randomQuote();
+
+                function randomQuote(){
+
+                    const quoteBox = document.getElementById("quoteBox");
+                    const author = document.getElementById("author");
+                    let x = Math.floor(Math.random()*1643)
+                    
+                    function quote(x){
+                
+                        fetch("https://type.fit/api/quotes")
+                            .then(function(response) {
+                                return response.json();
+                            })
+                            .then(function(data) {
+                                
+                                console.log(data[x].text);
+                                quoteBox.innerText = '\" '+data[x].text+'\"';
+                                author.innerText = "- "+data[x].author;
+                                author.style.textAlign = "right";
+                                author.style.paddingRight = "20%"
+                        });
+                    }
+
+                    quote(x);
+                }
+
+                function btn1_function(){
+                    window.location.href = "quotes.html";
+                }
+
+                function btn2_function(){
+                    window.location.href = "magic_with_js.html";
+                }
+
+                function btn3_funciton(){
+                    window.location.href = "converter.html";
+                }
+
+
+                function btn4_function(){
+                    window.location.href = "summaryOfNumbers.html";
+                }
+
+                function btn5_function(){
+                    window.location.href = "todo.html";
+                }
+
+            </script>
+
+            
+
+            
+
+
+
+
+
+            
+        </div>
+
+        <footer>
+                <p>SHAHRIAR HASAN MICKEY</p>
+                <P>For staying updated with development, tech related or consultation and learning purposes follow me on my socials</P>
+                <div class="social_media">
+                    <a href="https://www.facebook.com/miki.munna"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/@shahriarhasanmickey5960"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://twitter.com/sHaRPless_1199"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/shahriar-hasan-mickey"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-github"></i></a>
+                    <a href="mailto:shahriar.hasan.mickey@g.bracu.ac.bd"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+                <p class="end"><i class="fa-regular fa-copyright"></i> CopyRight By SHAHRIAR HASAN MICKEY</p>
+            </footer>
+
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

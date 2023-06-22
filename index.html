@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>mickeys portfolio</title>
+       
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <style>
+            #extras h2{
+                color: #00FFCA;
+                margin-bottom: 50px;
+            }
+
+            .childContent{
+                width: 50%;
+                float: left;
+                /* padding: 20px; */
+            }
+        </style>
+
+        <!-- NEED TO CHANGE THE VERSION OF THE FONT AWSOME FROM HERE & THE BELOW LINK IS NEEDED SO THAT THE ICONS ARE VISIBLE IN THE PAGE -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    </head>
+
+    <body>
+        <div class="home" id="home-page">
+            <nav>
+                <div id= "logoDiv"style="display: flex;">
+                    <h2 id="logo">sh</h2><h2 id="sub-logo">mickey</h2>
+                </div>
+                
+                <script>
+                    
+                    const logoDiv = document.getElementById("logoDiv");
+                    let logo = document.getElementById('logo');
+                    let sublogo = document.getElementById('sub-logo');
+                    logo.style.color = "#0A4D68";
+                    logo.style.fontSize = '35px';
+                    sublogo.style.fontSize = '35px';
+                    logo.style.letterSpacing = '1px';
+                    logo.style.cursor = 'pointer';
+                    sublogo.style.cursor = 'pointer';
+                    sublogo.style.color = "#00FFCA";
+
+                    logoDiv.addEventListener('mouseover', function mouseHover(){
+                        logo = document.getElementById('logo');
+                        sublogo = document.getElementById('sub-logo');
+
+                        logo.style.color = "#00FFCA";
+                        logo.innerText = "ميكي";
+                        sublogo.innerText = "شه";
+                        sublogo.style.color = "#0A4D68";
+                        logo.style.transition = "0.5s";
+                        logo.style.transform = "scale(1.1)";
+                        sublogo.style.transition = "0.5s";
+                        sublogo.style.transform = "scale(1.1)";
+                        
+                    });
+
+                    logoDiv.addEventListener('mouseout', function mouseHoverOut(){
+                        logo = document.getElementById('logo');
+                        sublogo = document.getElementById('sub-logo');
+                        logo.style.color = "#0A4D68";
+                        
+                        
+                        sublogo.style.color = "#00FFCA";
+                        sublogo.innerText = "mickey";
+                        logo.innerText = "sh";
+                        logo.style.transition = "0.5s";
+                        sublogo.style.transition = "0.5s";
+                        logo.style.transform = "scale(1.0)";
+                        sublogo.style.transform = "scale(1.0)"
+                    })
+
+
+                    
+                </script>
+
+
+                <ul> 
+                    <li><a href="#home-page">Home</a></li>
+                    <li><a href="#about-me">About Me</a></li>
+                    <li><a href="#our-services">Services</a></li>
+                    <li><a href="#">Skills</a></li>
+                    <li><a href="#extras">Extras</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="#contact-me">Contact Me</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <section>
+
+            
+            <div class="content">
+                <div class="childContent" style="align-self: center;">
+                    <H4> I am </H4>
+                    <h2>SHAHRIAR HASAN MICKEY, </h2>
+                    <h4>A Software Developer & A Security Researcher.</h4>
+                    
+                    <br/>
+                    <div class="newsletter">
+                        <form>
+                            <input type="email" name="email", id="mail" placeholder="Enter Your Email Here For Newsletter Subscription ...">
+                            <input type="submit" name="submit" value="Subscribe">
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="childContent" style="text-align: right;">
+                    <br>
+                    <br>
+                    <br>
+                    <h4 id="reference"></h4>
+                    <h2 id="quranVerse" style="font-size: 40px;"></h2>
+                    <p id="translatedVerseEnglish"></p>
+                    <p id="translatedVerseBangla"></p>
+                    <h4 id="chapterName"></h4>
+                </div>
+                
+            </div>
+
+            
+        
+        </section>
+
+        <!-- ABOUT ME -->
+        <section class="about" id="about-me">
+            <div class="main">
+                <img src="images/myPicture.jpg" width="400px">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <h4>Developer & Researcher</h4>
+                    <p>I am a Software Developer and Security Researcher with more than three years of experience in each areas. My motive on work alway stays to build the software, maintiaing the global security standards such as MASVS and PCI-DSS.</p>
+                    <a href="#contact-me"><button type="button">Let's Talk</button></a>
+            
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- SERVICES -->
+        <section class="services" id="our-services">
+            <div class="title">
+                <h2>Our Services</h2>
+            </div>
+
+            <div class="box">
+                <div class="card">
+                    <i class="fa-solid fa-code"></i>
+                    <h4>Web Development</h4>
+                    <div class="paragraph">
+                        <p>Full Stack Development using HTML, CSS, JavaScript, Java,.</p>
+
+                        <p style="text-align: center;">
+                            <a class="button" href="#contact-me">Contact Me</a>
+                        </p>
+                        
+                    </div>
+                </div>
+            
+
+
+            
+                <div class="card">
+                    <i class="fa-solid fa-mobile-button"></i>
+                    <h4>Android Development</h4>
+                    <div class="paragraph">
+                        <p>Native Android Development using JAVA and Kotlin.</p>
+
+                        <p style="text-align: center;">
+                            <a class="button" href="#contact-me">Contact Me</a>
+                        </p>
+                        
+                    </div>
+                </div>
+            
+            
+
+            
+                <div class="card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h4>Security Testing</h4>
+                    <div class="paragraph">
+                        <p>Web Penetration Testing and Vulnerability Reporting (Bug Haunting)</p>
+
+                        <p style="text-align: center;">
+                            <a class="button" href="#contact-me">Contact Me</a>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- EXTRAS -->
+        <section class="extras" id="extras">
+            <div  id="extra-list">
+                <h2>Following are some useful links:</h2>
+                <ul class="extras-list-css">
+                    <li><a class="listing" href="myEducation.html">My Education</a></li>
+                    <li><a class="listing" href="myAchievements.html">My Achievements</a></li>
+                    <li><a class="listing" href="mySkills.html">My Skills</a></li>
+                    <li><a class="listing" href="#">Blog Site</a></li>
+                    <li><a class="listing" href="myHobby.html">My Hobby</a></li>
+                    <!-- <li><a class="listing" href="#">My Education</a></li>
+                    <li><a class="listing" href="#">My Education</a></li>
+                    <li><a class="listing" href="#">My Education</a></li>
+                    <li><a class="listing" href="#">My Education</a></li> -->
+                </ul>
+                
+            </div>
+        </section>
+
+        <!-- CONTACT ME -->
+        <section class="contact-me" id="contact-me">
+            <p>Contact me for above mentioned Services </p>
+            <p>as well as other Businesses and Colaborative and Research work.</p>
+            <a class="button-two" href="#">Contact For Work</a>
+        </section>
+
+   
+        
+
+        <footer>
+            <p>SHAHRIAR HASAN MICKEY</p>
+            <P>For staying updated with development, tech related or consultation and learning purposes follow me on my socials</P>
+            <div class="social_media">
+                <a href="https://www.facebook.com/miki.munna"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.youtube.com/@shahriarhasanmickey5960"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://twitter.com/sHaRPless_1199"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/shahriar-hasan-mickey"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-square-github"></i></a>
+                <a href="mailto:shahriar.hasan.mickey@g.bracu.ac.bd"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p class="end"><i class="fa-regular fa-copyright"></i> CopyRight By SHAHRIAR HASAN MICKEY</p>
+        </footer>
+        <script>
+
+            const quranVerse = document.getElementById("quranVerse");
+            const reference = document.getElementById("reference");
+            const chapterName = document.getElementById("chapterName");
+            const translatedVerseEnglish = document.getElementById("translatedVerseEnglish");
+            const translatedVerseBangla = document.getElementById("translatedVerseBangla");
+            // fetch("https://api.alquran.cloud/v1/ayah/"+ Math.floor(Math.random()*6236 +1))
+            //             .then(function (response) {
+            //                 return response.json();
+            //             })
+            //             .then(function (data) {
+            //                 val = data;
+            //                 quranVerse.innerText = val.data.text;
+            //                 console.log(val.data.text);
+            //             });
+
+
+            
+                        
+
+
+
+
+            let chapter_list = [];
+            fetch("https://api.quran.com/api/v4/chapters?language=en")
+            .then(function res(response) {
+                return response.json();
+            }).then(function d(data) {
+                chapter_list = data;
+                
+                // console.log(chapter_list.cha)
+                const randomChapter = Math.floor((Math.random()*114));
+                const numberOfVersses = chapter_list.chapters[randomChapter].verses_count;
+                console.log(numberOfVersses + " " + chapter_list.chapters[randomChapter]);
+                const randomVerse = Math.floor((Math.random()*numberOfVersses) + 1);
+
+                let val = {};
+                fetch("https://api.quran.com/api/v4/verses/by_key/" + (randomChapter+1) + ":" + randomVerse +"?words=false&fields=text_uthmani&translations=161,167").
+                    then(function (response) {
+                        return response.json();
+                }).then(function(data){
+                        val = data;
+                        quranVerse.innerText = val.verse.text_uthmani;
+                        translatedVerseEnglish.innerText = val.verse.translations[0].text;
+                        translatedVerseEnglish.style.color = "white";
+                        translatedVerseEnglish.style.fontWeight = "bold";
+                        translatedVerseBangla.innerText = val.verse.translations[1].text;
+                        translatedVerseBangla.style.color = "white";
+                        translatedVerseBangla.style.fontWeight = "bold";
+                        reference.innerText = "QURAN ["+(randomChapter+1) + ":" + randomVerse + "]"; 
+                        chapterName.innerText = "Chapter : "+chapter_list.chapters[randomChapter].name_arabic + " / {" + chapter_list.chapters[randomChapter].name_simple + "} / (" +chapter_list.chapters[randomChapter].translated_name.name +")";
+                        console.log(val.verse.text_uthmani);
+                }); 
+            })
+
+            
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+<!-- https://api.quran.com/api/v4/chapters?language=en
+
+
+    impoer requests
+    for i in range(170):
+        y = requests.get("https://api.quran.com/api/v4/verses/by_key/100:1?words=false&fields=text_uthmani&translations="+str(i))
+        y = y.json()
+        if ("translations" in y["verse"]) :
+            print(i, y["verse"]["translations"][0]["text"])
+
+-->
