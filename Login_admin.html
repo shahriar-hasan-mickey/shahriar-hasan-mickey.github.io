@@ -83,38 +83,40 @@
                 padding: 2px;
             }
 
-            .btn1, .btn2, .btn3, .btn4, .btn5, .btn6, .btn7{
+
+
+            #btn1,#btn2{
                 padding: 10px 20px;
                 border: 2px solid aqua;
-                background-color: #088395;
+                /* background-color: #; */
                 transition: 0.4s;
-                font-size: 10px;
-                /* font-weight: b; */
+                font-size: 15px;
+                font-weight: bold;
                 color: aliceblue;
             }
 
-            /* .btn1{
+            #btn1{
+                background-color: #088395;
+            }
+            #btn2{
                 background-color: rgb(230, 152, 8);
             }
-            .btn2{
-                
-            }
 
-            .btn3{
-                background-color: blueviolet;
-            }
-
-            .btn4{
-                background-color: green;
-            } */
-
-            button:hover{
+            
+            #btn1:hover{
                 background-color: black;
                 border: 2px solid #fdfdfd;
                 cursor: pointer;
                 font-size: 15px;
                 color: #00FFCA;
             }   
+            #btn2:hover{
+                background-color: rgb(221, 17, 17);
+                border: 2px solid #fdfdfd;
+                cursor: pointer;
+                font-size: 15px;
+                color: #00FFCA;
+            }  
         </style>
 
         <!-- NEED TO CHANGE THE VERSION OF THE FONT AWSOME FROM HERE & THE BELOW LINK IS NEEDED SO THAT THE ICONS ARE VISIBLE IN THE PAGE -->
@@ -153,48 +155,27 @@
                     padding-top: 10px;
                     padding-bottom: 10px;">
                         
-                            <!-- <table class="tableColumns">
-                            <thead>
-                              <tr> -->
-                                <!-- <th class="leftColumn"><strong>Series of Number</strong></th> -->
-                                <!-- <th class="rightColumn"><textarea type="text" id="inputValue" rows="20" cols="40"></textarea></th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td class="leftColumn">
-                                    <p style="text-align: center;">
-                                        <button class="btn1" onclick="btn1_function();">Clear It</button>
-                                        <button class="btn2" onclick="btn2_function()">Capitalize</button>
-                                        <button class="btn3" onclick="btn3_function()">Sort</button>
-                                        <button class="btn4" onclick="btn4_function()">Reverse</button>
-                                        <button class="btn5" onclick="btn5_function()">Strip Blank</button>
-                                        <button class="btn6" onclick="btn6_function()">Add Numbers</button>
-                                        <button class="btn7" onclick="btn7_function()">Shuffle</button>
-                                    </p>
-                                </td>
-                              </tr>
-                        
-                            </tbody>
-                            </table> -->
+                           
 
 
 
 
-                        <form action="#" method="POST">
+                        <form id="login_form">
                             <label for="username">username :</label>
-                            <input type="text" name="uname" id="uname" required>
+                            <input type="text" name="username" id="username" required>
                             <br><br>
                   
                             <label for="password">password:</label>
-                            <input type="password" name="pword" id="pword" required>
+                            <input type="password" name="password" id="password" required>
                             <br><br>
                 
 
                             <br/>
                             <br/>
-                            <button type="submit" value="login">Sign In</button>
+                            <input type="submit" id="btn1" value="LOGIN">
+                            <input type="button" id="btn2" value="REGISTER">
                             
+                        </form>
                         
                         </div>
 
@@ -233,7 +214,7 @@
         </footer>
 
 
-        <script src="magic_with_js.js"></script>
+        <script src="login.js"></script>
         
     </body>
 </html>

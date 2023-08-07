@@ -25,131 +25,646 @@ logo.addEventListener('mouseout', function mouseHoverOut(){
 
 
 
-function btn1_function(){
-    const inputValue = document.getElementById("inputValue");
-    inputValue.value = "";
-}
-
-let btn2_state = 0;
-
-function btn2_function(){
-    const inputValue = document.getElementById("inputValue");
-    if(btn2_state === 0 ){
-        btn2_state = 1;
-        inputValue.value = inputValue.value.toUpperCase();
+function getCookie(key){
+    const cookie = document.cookie.split("; ").find(row => row.startsWith(key + "="));
+    if(cookie){
+        const cookieList = cookie.split("=");
+        return cookieList[1];
     }else{
-        btn2_state = 0;
-        inputValue.value = inputValue.value.toLowerCase();
+        return null;
+    }
+}
+
+
+
+
+
+
+// const url = "https://classscheduling-production.up.railway.app";
+const url = "http://localhost:8080";
+let path = "";
+let uri = "";
+
+const section = document.getElementById("section");
+const firstName = document.getElementById("firstName");
+const lastName = document.getElementById("lastName");
+const email = document.getElementById("email");
+const sid = document.getElementById("sid");
+window.addEventListener('load', async function(event){
+    event.preventDefault();
+    
+    uncheck();
+
+    var isJwtCookieSet = getCookie("Authentication");
+    
+    if(isJwtCookieSet == null){
+        window.location.href = "Login_admin.html";
+    }
+    isJwtCookieSet = JSON.parse(isJwtCookieSet);
+    if(isJwtCookieSet.jwttoken == null){
+        window.location.href = "Login_admin.html";
     }
     
-}
 
-function btn3_function(){
-    const inputValue = document.getElementById("inputValue");
-    const arr = inputValue.value.split("\n");
-    const sortedArray = arr.sort();
+    // console.log(isJwtCookieSet.jwttoken);
+    const jwttoken = isJwtCookieSet.jwttoken
+
+    const fetchOptions = 
+    {
+        method: "GET", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept' : '*/*',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization' : 'Bearer ' + jwttoken,
+        }
+
+    };
+        // https://www.baeldung.com/spring-security-cors-preflight
+
+        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS
     
-    let tempString = "";
+        // https://stackoverflow.com/questions/58744677/httpservletrequest-request-getheader-is-always-null
+    
+    path = "/View_Class_Schedule_With_Enrollment";
+    uri = url+path;
+    // try{
+    //     const response = await fetch(url, fetchOptions);
+    //     if(!response.ok){
+    //         const error = await response.text ;
+    //         throw new Error(error);
+    //     }
 
-    // sortedArray.forEach(element => {
-    //     tempString+=element+"\n";
-    // });
-    sortedArray.forEach(function(element, index, array) {
-        tempString+=element;
-        if(index !== array.length -1){
-            tempString+="\n";
-        }
+    //     // const responseData = response.text;
+    //     console.log(response.text);
+    //     this.alert(response.text());
+    // }catch(error){
+    //     console.log(error);
+    //     alert(error.message);
+    // }
+
+    // this.fetch("http://localhost:8080/jwtProject", fetchOptions)
+    //     .then(response => {
+    //         if(!response.ok){
+    //             throw new Error("Network Error with response");
+    //         }
+    //         return response.text();
+    //     }).then(data => {
+    //         this.alert(data);
+    //     }).catch(error => {
+    //         console.log(error);
+    //     });
+
+
+    await fetch(uri, fetchOptions)
+        .then(response => {
+            if(!response.ok){
+                throw new Error("Network Error with response");
+            }
+            return response.json();
+        }).then(data => {
+            // this.alert(data);
+
+            const classData = document.getElementById("classData");
+            data.forEach(eachData => {
+                let row = classData.insertRow(-1);
+                row.className = "data";
+                let section = row.insertCell(0);
+                let sid = row.insertCell(1);
+                let email = row.insertCell(2);
+                let firstName = row.insertCell(3);
+                let lastName = row.insertCell(4);
+                
+                section.innerText = eachData.section;
+                sid.innerText = eachData.sid;
+                email.innerText = eachData.email;
+                firstName.innerText = eachData.firstName;
+                lastName.innerText = eachData.lastName;
+                
+            });
+
+            
+            console.log(data);
+        }).catch(error => {
+            console.log(error);
+        });
+
+});
+
+
+
+// async function loginChecker(){
+
+//     var isJwtCookieSet = document.cookie;
+    
+//     if(isJwtCookieSet == null){
+//         window.location.href = "Login_admin.html";
+//     }
+//     isJwtCookieSet = JSON.parse(isJwtCookieSet);
+//     if(isJwtCookieSet.jwttoken == null){
+//         window.location.href = "Login_admin.html";
+//     }
+    
+
+//     // console.log(isJwtCookieSet.jwttoken);
+//     const jwttoken = isJwtCookieSet.jwttoken
+
+//     const fetchOptions = 
+//     {
+//         method: "GET", // *GET, POST, PUT, DELETE, etc.
+//         mode: "cors", // no-cors, *cors, same-origin
+//         // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+//         credentials: "same-origin", // include, *same-origin, omit
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept' : '*/*',
+//             'Authorization' : 'Bearer ' + jwttoken,
+//         }
+
+//     };
+
+    
+//         // https://stackoverflow.com/questions/58744677/httpservletrequest-request-getheader-is-always-null
+    
+//     const url = "http:localhost:8080/jwtProject";
+//     try{
+//         const response = await fetch(url, fetchOptions);
+//         if(!response.ok){
+//             const error = await response.text ;
+//             throw new Error(error);
+//         }
+
+//         console.log(response.text);
+//     }catch(error){
+//         console.log(error);
+//         alert(error.message);
+//     }
+
+// }
+
+// loginChecker();
+
+
+function remover(){
+    let delData = document.getElementsByClassName("data");
+    delData = Array.from(delData);
+    delData.forEach(element => {
+    element.remove();
     });
 
-    inputValue.value = tempString;
+    delData.innerHTML = "";
 }
 
 
-// https://www.freecodecamp.org/news/how-to-sort-alphabetically-in-javascript/
-https://stackoverflow.com/questions/29738535/catch-foreach-last-iteration
 
+let fname_clicked = 0;
 
+firstName.addEventListener("click", async event => {
 
-function btn4_function(){
-    const inputValue = document.getElementById("inputValue");
-    const arr = inputValue.value.split("\n");
+    remover();
 
-    let tempString = "";
+    var isJwtCookieSet = getCookie("Authentication");
+    
+    if(isJwtCookieSet == null){
+        window.location.href = "Login_admin.html";
+    }
+    isJwtCookieSet = JSON.parse(isJwtCookieSet);
+    if(isJwtCookieSet.jwttoken == null){
+        window.location.href = "Login_admin.html";
+    }
+    
 
-    arr.forEach(function(element, index, array) {
-        tempString += element.split("").reverse().join("");    
-        if(index !== array.length - 1){
-            tempString += "\n";
-        }
-    });
+    const jwttoken = isJwtCookieSet.jwttoken
 
-    inputValue.value = tempString;
-}
-
-
-function btn5_function(){
-    const inputValue = document.getElementById("inputValue");
-    const arr = inputValue.value.split("\n");
-    let tempString = "";
-    arr.forEach(function(element, index, array) {
-        tempString += element.trim();
-        if(index !== array.length - 1 && element !== ""){
-            tempString += "\n";
-        }
-    });
-
-    inputValue.value = tempString;
-}
-
-// https://www.educative.io/answers/how-to-remove-whitespaces-from-the-beginning-of-a-string-in-js
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim
-
-
-function btn6_function(){
-    const inputValue = document.getElementById("inputValue");
-    const arr = inputValue.value.split("\n");
-    let tempString = "";
-
-    arr.forEach(function(element, index, array) {
-        tempString += ((index+1) + ". " + element);
-        if(index !== array.length - 1){
-            tempString += "\n";
-        }
-    });
-
-    inputValue.value = tempString;
-}
-
-
-
-function btn7_function(){
-    const inputValue = document.getElementById("inputValue");
-    const arr = inputValue.value.split("\n");
-    let tempString = "";
-    let numState = false;
-    const randomNumber = new Array(arr.length);
-    let ranNo = Math.floor(Math.random() * arr.length);
-
-    for (let index = 0; index < arr.length; index++) {
-        
-        while(randomNumber.includes(ranNo)){
-            ranNo = Math.floor(Math.random() * arr.length);
+    const fetchOptions = 
+    {
+        method: "GET",
+        mode: "cors",
+        credentials: "same-origin",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept' : '*/*',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization' : 'Bearer ' + jwttoken,
         }
 
-        randomNumber[index] = ranNo;
-        
+    };
+
+    if(fname_clicked == 0){
+        fname_clicked = 1;
+        path = "/sortByFirstnameASC";
+    }else{
+        fname_clicked = 0;
+        path = "/sortByFirstnameDESC"; 
     }
 
-    randomNumber.forEach(function(element, index, array) {
-        tempString+=arr[element];
-        if(index !== array.length -1){
-            tempString += "\n";
-        }
-    });
+    uri = url + path;
+    await fetch(uri, fetchOptions)
+        .then(response => {
+            if(!response.ok){
+                throw new Error("Network Error with response");
+            }
+            return response.json();
+        }).then(data => {
 
-    inputValue.value = tempString;
+            data.forEach(eachData => {
+                let row = classData.insertRow(-1);
+                row.className = "data";
+                let section = row.insertCell(0);
+                let sid = row.insertCell(1);
+                let email = row.insertCell(2);
+                let firstName = row.insertCell(3);
+                let lastName = row.insertCell(4);
+                
+                section.innerText = eachData.section;
+                sid.innerText = eachData.sid;
+                email.innerText = eachData.email;
+                firstName.innerText = eachData.firstName;
+                lastName.innerText = eachData.lastName;
+                
+            });
+
+            
+            console.log(data);
+        }).catch(error => {
+            console.log(error);
+        });
+});
+
+
+
+let lname_clicked = 0;
+
+lastName.addEventListener("click", async event => {
+
+    remover();
+
+    var isJwtCookieSet = getCookie("Authentication");
+    
+    if(isJwtCookieSet == null){
+        window.location.href = "Login_admin.html";
+    }
+    isJwtCookieSet = JSON.parse(isJwtCookieSet);
+    if(isJwtCookieSet.jwttoken == null){
+        window.location.href = "Login_admin.html";
+    }
+    
+
+    const jwttoken = isJwtCookieSet.jwttoken
+
+    const fetchOptions = 
+    {
+        method: "GET",
+        mode: "cors",
+        credentials: "same-origin",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept' : '*/*',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization' : 'Bearer ' + jwttoken,
+        }
+
+    };
+
+    if(lname_clicked == 0){
+        lname_clicked = 1;
+        path = "/sortByLastnameASC";
+    }else{
+        lname_clicked = 0;
+        path = "/sortByLastnameDESC"; 
+    }
+
+    uri = url + path;
+    await fetch(uri, fetchOptions)
+        .then(response => {
+            if(!response.ok){
+                throw new Error("Network Error with response");
+            }
+            return response.json();
+        }).then(data => {
+
+            data.forEach(eachData => {
+                let row = classData.insertRow(-1);
+                row.className = "data";
+                let section = row.insertCell(0);
+                let sid = row.insertCell(1);
+                let email = row.insertCell(2);
+                let firstName = row.insertCell(3);
+                let lastName = row.insertCell(4);
+                
+                section.innerText = eachData.section;
+                sid.innerText = eachData.sid;
+                email.innerText = eachData.email;
+                firstName.innerText = eachData.firstName;
+                lastName.innerText = eachData.lastName;
+                
+            });
+
+            
+            console.log(data);
+        }).catch(error => {
+            console.log(error);
+        });
+});
+
+
+
+
+let email_clicked = 0;
+
+email.addEventListener("click", async event => {
+
+    remover();
+
+    var isJwtCookieSet = getCookie("Authentication");
+    
+    if(isJwtCookieSet == null){
+        window.location.href = "Login_admin.html";
+    }
+    isJwtCookieSet = JSON.parse(isJwtCookieSet);
+    if(isJwtCookieSet.jwttoken == null){
+        window.location.href = "Login_admin.html";
+    }
+    
+
+    const jwttoken = isJwtCookieSet.jwttoken
+
+    const fetchOptions = 
+    {
+        method: "GET",
+        mode: "cors",
+        credentials: "same-origin",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept' : '*/*',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization' : 'Bearer ' + jwttoken,
+        }
+
+    };
+
+    if(email_clicked == 0){
+        email_clicked = 1;
+        path = "/sortByEmailASC";
+    }else{
+        email_clicked = 0;
+        path = "/sortByEmailDESC"; 
+    }
+
+    uri = url + path;
+    await fetch(uri, fetchOptions)
+        .then(response => {
+            if(!response.ok){
+                throw new Error("Network Error with response");
+            }
+            return response.json();
+        }).then(data => {
+
+            data.forEach(eachData => {
+                let row = classData.insertRow(-1);
+                row.className = "data";
+                let section = row.insertCell(0);
+                let sid = row.insertCell(1);
+                let email = row.insertCell(2);
+                let firstName = row.insertCell(3);
+                let lastName = row.insertCell(4);
+                
+                section.innerText = eachData.section;
+                sid.innerText = eachData.sid;
+                email.innerText = eachData.email;
+                firstName.innerText = eachData.firstName;
+                lastName.innerText = eachData.lastName;
+                
+            });
+
+            
+            console.log(data);
+        }).catch(error => {
+            console.log(error);
+        });
+});
+
+
+let sid_clicked = 0;
+
+sid.addEventListener("click", async event => {
+
+    remover();
+
+    var isJwtCookieSet = getCookie("Authentication");
+    
+    if(isJwtCookieSet == null){
+        window.location.href = "Login_admin.html";
+    }
+    isJwtCookieSet = JSON.parse(isJwtCookieSet);
+    if(isJwtCookieSet.jwttoken == null){
+        window.location.href = "Login_admin.html";
+    }
+    
+
+    const jwttoken = isJwtCookieSet.jwttoken
+
+    const fetchOptions = 
+    {
+        method: "GET",
+        mode: "cors",
+        credentials: "same-origin",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept' : '*/*',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization' : 'Bearer ' + jwttoken,
+        }
+
+    };
+
+    if(sid_clicked == 0){
+        sid_clicked = 1;
+        path = "/sortBySidASC";
+    }else{
+        sid_clicked = 0;
+        path = "/sortBySidDESC"; 
+    }
+
+    uri = url + path;
+    await fetch(uri, fetchOptions)
+        .then(response => {
+            if(!response.ok){
+                throw new Error("Network Error with response");
+            }
+            return response.json();
+        }).then(data => {
+
+            data.forEach(eachData => {
+                let row = classData.insertRow(-1);
+                row.className = "data";
+                let section = row.insertCell(0);
+                let sid = row.insertCell(1);
+                let email = row.insertCell(2);
+                let firstName = row.insertCell(3);
+                let lastName = row.insertCell(4);
+                
+                section.innerText = eachData.section;
+                sid.innerText = eachData.sid;
+                email.innerText = eachData.email;
+                firstName.innerText = eachData.firstName;
+                lastName.innerText = eachData.lastName;
+                
+            });
+
+            
+            console.log(data);
+        }).catch(error => {
+            console.log(error);
+        });
+});
+
+
+
+
+
+
+
+
+
+
+section.addEventListener("change", async event => {
+    if(lastName.checked){
+        lastName.checked = false;
+    }
+    if(firstName.checked){
+        firstName.checked = false;
+    }
+    if(email.checked){
+        email.checked = false;
+    }
+    if(sid.checked){
+        sid.checked = false;
+    }
+
+    path = "/filterbySection";
+    section_filter(path);
+});
+
+
+async function section_filter(path){
+    remover();
+
+    var isJwtCookieSet = getCookie("Authentication");
+    
+    if(isJwtCookieSet == null){
+        window.location.href = "Login_admin.html";
+    }
+    isJwtCookieSet = JSON.parse(isJwtCookieSet);
+    if(isJwtCookieSet.jwttoken == null){
+        window.location.href = "Login_admin.html";
+    }
+    
+
+    const jwttoken = isJwtCookieSet.jwttoken
+
+    const fetchOptions = 
+    {
+        method: "GET",
+        mode: "cors",
+        credentials: "same-origin",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept' : '*/*',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization' : 'Bearer ' + jwttoken,
+        }
+
+    };
+
+    if(section.value == 1){
+        path += "/1";
+    }else if(section.value == 2){
+        path += "/2"; 
+    }else if(section.value == 3){
+        path += "/3"; 
+    }else if(section.value == 4){
+        path += "/4"; 
+    }else{
+        path = "/View_Class_Schedule_With_Enrollment";
+    }
+
+    uri = url + path;
+    await fetch(uri, fetchOptions)
+        .then(response => {
+            if(!response.ok){
+                throw new Error("Network Error with response");
+            }
+            return response.json();
+        }).then(data => {
+
+            data.forEach(eachData => {
+                let row = classData.insertRow(-1);
+                row.className = "data";
+                let section = row.insertCell(0);
+                let sid = row.insertCell(1);
+                let email = row.insertCell(2);
+                let firstName = row.insertCell(3);
+                let lastName = row.insertCell(4);
+                
+                section.innerText = eachData.section;
+                sid.innerText = eachData.sid;
+                email.innerText = eachData.email;
+                firstName.innerText = eachData.firstName;
+                lastName.innerText = eachData.lastName;
+                
+            });
+
+            
+            console.log(data);
+        }).catch(error => {
+            console.log(error);
+        });
 }
 
-// https://java2blog.com/fill-array-with-random-numbers-javascript/
-// https://www.w3schools.com/jsref/jsref_includes_array.asp#:~:text=The%20includes()%20method%20returns,()%20method%20is%20case%20sensitive.
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+const clear_filter = document.getElementById("clear_filter");
+clear_filter.addEventListener("click", event => {
+    uncheck();
+    location.reload();
+});
+
+function uncheck(){
+
+
+    // console.log("clicked");
+    lastName.checked = false;
+    firstName.checked = false;
+    sid.checked = false;
+    email.checked = false;
+    section.value = 0;
+
+    // https://bobbyhadz.com/blog/javascript-set-radio-to-checked-unchecked
+    // https://stackoverflow.com/questions/24875414/addeventlistener-change-and-option-selection
+}
+
+
+
+
+
+const logout = document.getElementById('logout');
+
+logout.addEventListener('click', event => {
+    console.log("clicked")
+    document.cookie = "";
+    console.log(document.cookie);
+    delete_token('Authentication', 20);
+    window.location.href = "Login_admin.html";
+})
+
+
+function delete_token(key, duration){
+    const jwtToken = getCookie(key);
+    if(jwtToken != null){
+        const now = new Date();
+        const expiration_Date = new Date(now.getTime() - duration * 60 * 1000);
+        document.cookie = `Authentication=${jwtToken}; expires=${expiration_Date.toUTCString()};`;
+    }
+}

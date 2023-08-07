@@ -83,25 +83,25 @@
                 padding: 2px;
             }
 
-            #btn1,#btn2{
-                padding: 10px 20px;
-                border: 2px solid aqua;
+            #clear_filter,#btn2{
+                padding: 2px 4px;
+                border: 2px solid rgb(7, 24, 24);
                 /* background-color: #; */
                 transition: 0.4s;
-                font-size: 15px;
+                font-size: 12px;
                 font-weight: bold;
-                color: aliceblue;
+                color: rgb(2, 8, 14);
             }
 
-            #btn1{
-                background-color: #088395;
+            #clear_filter{
+                background-color: #e0e8e9;
             }
             #btn2{
                 background-color: rgb(230, 152, 8);
             }
 
             
-            #btn1:hover{
+            #clear_filter:hover{
                 background-color: black;
                 border: 2px solid #fdfdfd;
                 cursor: pointer;
@@ -148,9 +148,9 @@
 
             <div class="box">
                 <div class="card">
-                    <button type="login" id="login" value="Login" style="float: right; background-color: #088ca0; ">Login</button>
+                    <button type="logout" id="logout" value="Logout" style="float: right; background-color: #088ca0; ">Logout</button>
                     <br/>
-                    <h4 >Enrollment Form For Class</h4>
+                    <h4 >Class Registered Data</h4>
                     <div class="convertionBox" id="convertionBox" style="border: 2px solid black;
                     padding-top: 10px;
                     padding-bottom: 10px;">
@@ -158,26 +158,24 @@
                            
 
                         <!-- <form action="register.js" method="POST"> -->
+                        
+
+                            <!-- https://www.youtube.com/watch?v=widROy5qcDc -->
                         <form id="form">
+                            FILTER BY: 
                             <label for="fname">First Name:</label>
-                            <input type="text" name="firstName" id="firstName" required>
-                            <br><br>
+                            <input type="radio" name="filterOption" id="firstName" >
                   
                             <label for="lname">Last Name:</label>
-                            <input type="text" name="lastName" id="lastName" required>
-                            <br><br>
+                            <input type="radio" name="filterOption" id="lastName" >
                   
                             <label for="email">Email Id:</label>
-                            <input type="email" name="email" id="email" required>
-                            <br><br>
+                            <input type="radio" name="filterOption" id="email" >
                   
-                            <label for="sid">Student Id:</label>
-                            <input type="id" name="sid" id="sid" required>
-                            <br><br>
+                            <label for="sid">SID:</label>
+                            <input type="radio" name="filterOption" id="sid" >
 
-                            
-
-                            <label for="section">Section:</label>
+                            <label for="sid">Section:</label>
                             <select name="section" id="section" required>
                                 <option value="0">--Please choose an option--</option>
                                 <option value="1">Monday 15:00 - 17:00</option>
@@ -186,15 +184,126 @@
                                 <option value="4">Friday 15:00 - 17:00</option>
                             </select>
 
-                            <br/>
-                            <br/>
-                            <input type="submit" value="SUBMIT" id="btn1">
-                            <input type="button" value="CLEAR", id="btn2" onclick="cancel()">
-                            <!-- <button type="submit" value="Submit" id="btnc">SUBMIT</button> -->
-                            <!-- <button type="clear" value="Clear">CLEAR</button> -->
+                            <input type="button" id="clear_filter" value="CLEAR"></button>
                         </form>
                         
 
+
+                        <style type="text/css">
+                            .tg  {
+                                width: 100%;
+                                border-collapse:collapse;
+                                border-spacing:0;
+                                margin-top: 30px;
+                            }
+                            .tg td{
+                                border-color:black;
+                                border-style:solid;
+                                border-width:1px;
+                                font-family:Arial, sans-serif;
+                                font-size:14px;
+                                overflow:hidden;
+                                padding:10px 5px;
+                                word-break:normal;
+                            }
+                            .tg th{
+                                border-color:black;
+                                border-style:solid;
+                                border-width:1px;
+                                font-family:Arial, sans-serif;
+                                font-size:14px;
+                                font-weight:normal;
+                                overflow:hidden;
+                                padding:10px 5px;
+                                word-break:normal;
+                            }
+                            .tg .tg-baqh{
+                                text-align:center;
+                                vertical-align:top
+                            }
+                            .tg .tg-c3ow{
+                                border-color:inherit;
+                                text-align:center;
+                                vertical-align:top
+                            }
+                        </style>
+
+
+
+
+
+
+
+
+
+
+
+                            <table class="tg" id="classData">
+                            <thead>
+                              <tr>
+                                <tr valign="top">
+                                <td width="5%">
+                                    <p align="center">Section</p>
+                                </td>
+                                <td width="10%">
+                                    <p align="center">SID</p>
+                                </td>
+                                <td width="32.5%">
+                                    <p align="center">Email</p>
+                                </td>
+                                <td width="32.5%">
+                                    <p align="center">First Name</p>
+                                </td>
+                                <td width="20%">
+                                    <p align="center">Last Name</p>
+                                </td>
+                                
+                                
+                              </tr>
+                            </thead>
+                            <!-- <tbody>
+                              <tr>
+                                <td class="tg-baqh"></td>
+                                <td class="tg-baqh"></td>
+                                <td class="tg-baqh"></td>
+                                <td class="tg-baqh"></td>
+                                <td class="tg-baqh"></td>
+                              </tr>
+                            </tbody> -->
+                            </table>
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- <div id="bracu">
+                
+                                <table style="width: 100%;" cellspacing="0" cellpadding="4"><colgroup><col width="128*" /><col width="128*" /></colgroup>
+                                    <tbody>
+                                    <tr>
+                                    <td colspan="2" valign="top" width="100%">
+                                    <p align="center">Brac University</p>
+                                    </td>
+                                    </tr>
+                                    <tr valign="top">
+                                    <td width="50%">
+                                    <p align="center">B.Sc (Hons) in Computer Science</p>
+                                    </td>
+                                    <td width="50%">
+                                    <p align="center">CGPA &ndash; 3.91</p>
+                                    </td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                            </div> -->
+                        
                          <!-- <form id="form">
                             <input type="text">
                             <input type="email">
@@ -237,7 +346,7 @@
         </footer>
 
 
-        <script src="register.js">
+        <script src="classScheduling.js">
 
             // var form = document.getElementById("submit");
             // form.addEventListener('submit', function(event){
