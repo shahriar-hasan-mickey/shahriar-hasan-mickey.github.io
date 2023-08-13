@@ -42,7 +42,7 @@ form.addEventListener("submit", async function(event){
     const data = new FormData(form);
     // const data = new URLSearchParams(data1);
     // const url = "http://localhost:8080";
-    const url = "classscheduling-production.up.railway.app";
+    const url = "https://classschedulingbackendrestapi-production.up.railway.app/";
     const path = "/Class_Enrollment";
 
 
