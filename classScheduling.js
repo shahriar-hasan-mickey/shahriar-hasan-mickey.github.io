@@ -40,8 +40,8 @@ function getCookie(key){
 
 
 
-// const url = "https://classscheduling-production.up.railway.app";
-const url = "http://localhost:8080";
+const url = "https://classscheduling-production.up.railway.app";
+// const url = "http://localhost:8080";
 let path = "";
 let uri = "";
 
@@ -662,6 +662,8 @@ logout.addEventListener('click', event => {
 
 function delete_token(key, duration){
     const jwtToken = getCookie(key);
+
+    // https://stackoverflow.com/questions/2144386/how-to-delete-a-cookie
     if(jwtToken != null){
         const now = new Date();
         const expiration_Date = new Date(now.getTime() - duration * 60 * 1000);

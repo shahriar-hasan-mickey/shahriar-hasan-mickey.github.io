@@ -41,7 +41,8 @@ form.addEventListener("submit", async function(event){
 
     const data = new FormData(form);
 
-    const url = "http://localhost:8080";
+    // const url = "http://localhost:8080";
+    const url = "https://classscheduling-production.up.railway.app";
     const path = "/authenticate";
 
 
