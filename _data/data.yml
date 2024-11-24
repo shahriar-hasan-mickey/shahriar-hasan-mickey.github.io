@@ -8,44 +8,45 @@ sidebar:
     education: True # set to False if you want education in main section instead of in sidebar
 
     # Profile information
-    name: Alan Doe
-    tagline: Full Stack Developer
+    name: SHAHRIAR HASAN MICKEY
+    tagline: RESEARCHER & SOFTWARE ENGINEER
     avatar: profile.png  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
     # Sidebar links
-    email: example@email.com
-    phone: 012 345 6789
-    timezone: America/Cancun # Enter your timezone, e.g., America/Havana, Africa/Casablanca, America/North_Dakota/Center
+    email: shahriar.mickey@bracu.ac.bd
+    phone: 01975017102
+    timezone: Bangladesh/Dhaka # Enter your timezone, e.g., America/Havana, Africa/Casablanca, America/North_Dakota/Center
     citizenship:
-    website: https://example.com/ # Include the full website URL, including "http://" or "https://".
-    linkedin: alandoe
-    xing: alandoe
-    github: jekyll
-    telegram: # add your nickname without '@' sign
-    gitlab:
-    bitbucket:
-    twitter: '@jekyllrb'
-    stack-overflow: # Number/Username, e.g. 123456/alandoe
-    codewars:
-    goodreads: # Number-Username, e.g. 123456-alandoe
-    mastodon:  # Please include your full Mastodon link here.
-    hackerrank: # Please provide your HackerRank username.
-    leetcode: # Please provide your LeetCode username.
+    website: https://shahriar-hasan-mickey.github.io # Include the full website URL, including "http://" or "https://".
+    website: https://cse.sds.bracu.ac.bd/faculty_profile/374/shahriar_hasan_mickey
+    linkedin: www.linkedin.com/in/shahriar-hasan-mickey
+    # xing: alandoe
+    github: github.com/shahriar-hasan-mickey
+    # telegram: # add your nickname without '@' sign
+    # gitlab:
+    # bitbucket:
+    # twitter: '@jekyllrb'
+    # stack-overflow: # Number/Username, e.g. 123456/alandoe
+    # codewars:
+    # goodreads: # Number-Username, e.g. 123456-alandoe
+    # mastodon:  # Please include your full Mastodon link here.
+    # hackerrank: # Please provide your HackerRank username.
+    # leetcode: # Please provide your LeetCode username.
     pdf: # Add a PDF link here if you want to include a PDF custom version in your resume.
 
-    languages:
-      title: Languages
-      info:
-        - idiom: English
-          level: Native
+    # languages:
+    #   title: Languages
+    #   info:
+    #     - idiom: English
+    #       level: Native
 
-        - idiom: French
-          level: Professional
+    #     - idiom: French
+    #       level: Professional
 
-        - idiom: Spanish
-          level: Professional
+    #     - idiom: Spanish
+    #       level: Professional
 
-    interests:
+    Research Interests:
       title: Interests
       info:
         - item: Climbing
