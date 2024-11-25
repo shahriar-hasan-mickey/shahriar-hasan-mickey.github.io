@@ -3,13 +3,13 @@
 #
 
 sidebar:
-    position: right # position of the sidebar : left or right
+    position: left # position of the sidebar : left or right
     about: True # set to False or comment line if you want to remove the "how to use?" in the sidebar
     education: True # set to False if you want education in main section instead of in sidebar
 
     # Profile information
     name: Shahriar Hasan Mickey
-    tagline: RESEARCHER & SOFTWARE ENGINEER
+    tagline: Systems Security Researcher
     avatar: shmickey_profile.jpg  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
     # Sidebar links
@@ -17,8 +17,8 @@ sidebar:
     phone: 01975017102
     timezone: Bangladesh/Dhaka # Enter your timezone, e.g., America/Havana, Africa/Casablanca, America/North_Dakota/Center
     citizenship:
-    website: https://shahriar-hasan-mickey.github.io # Include the full website URL, including "http://" or "https://".
-    # website: https://cse.sds.bracu.ac.bd/faculty_profile/374/shahriar_hasan_mickey
+    # website: https://shahriar-hasan-mickey.github.io # Include the full website URL, including "http://" or "https://".
+    website: https://cse.sds.bracu.ac.bd/faculty_profile/374/shahriar_hasan_mickey
     linkedin: www.linkedin.com/in/shahriar-hasan-mickey
     # xing: alandoe
     github: github.com/shahriar-hasan-mickey
